@@ -1,5 +1,5 @@
 //
-fetch("http...")
+fetch("http://universities.hipolabs.com/search?country=Andorra")
   .then((response) => {
     return response.json();
   })
