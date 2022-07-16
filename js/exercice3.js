@@ -26,14 +26,19 @@
   function renderUnivercities(data) {
     let elements = document.querySelectorAll(`#page>*`);
     elements.forEach((elements) => elements.remove())
-    const h2 = createDOMElement("h2", "nombre d'écoles en " + country + ": " + data.length, document.querySelector("#page"))
-    section = createDOMElement("section", "", document.querySelector("#page"), [
+    const h2 = createDOMElement("h2", "Univercities in " + country + ": " + data.length, document.querySelector("#page"))
+    section = createDOMElement("section", "", document.querySelector(`#page`), [
       {
         name: "style",
         value: "display: flex; justify-content: space-evenly; flex-wrap: wrap;",
       },
     ]);
-    data.forEach((univercity) => {
+    let sortedData;
+    if (data.length < 51) sortedData = data;
+    else {
+      
+    }
+    sortedData.forEach((univercity) => {
       const article = createDOMElement("article", "", section, [
         {
           name: "style",
