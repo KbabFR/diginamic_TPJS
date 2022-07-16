@@ -3,13 +3,14 @@
 
   const select = document.getElementById("country_select");
   const link = "http://universities.hipolabs.com/search?country=";
+  let country = select.selectedOptions[0].value;
 
   updateFetch();
 
   select.addEventListener("input", updateFetch);
 
   function updateFetch() {
-    const country = select.selectedOptions[0].value;
+    country = select.selectedOptions[0].value;
     fetch(link + country)
       .then((response) => {
         return response.json();
@@ -23,9 +24,10 @@
   }
 
   function renderUnivercities(data) {
-    let section = document.querySelector("section");
-    if(section != null) section.remove();
-    section = createDOMElement("section", "", document.body, [
+    let elements = document.querySelectorAll("#page>*");
+    elements.forEach((elements) => elements.remove())
+    const h2 = createDOMElement("h2", "nombre d'écoles en " + country + ": " + data.length, document.querySelector("#page"))
+    section = createDOMElement("section", "", document.querySelector("#page"), [
       {
         name: "style",
         value: "display: flex; justify-content: space-evenly; flex-wrap: wrap;",
