@@ -24,7 +24,7 @@
   }
 
   function renderUnivercities(data) {
-    let elements = document.querySelectorAll("#page>*");
+    let elements = document.querySelectorAll(`#page>*`);
     elements.forEach((elements) => elements.remove())
     const h2 = createDOMElement("h2", "nombre d'écoles en " + country + ": " + data.length, document.querySelector("#page"))
     section = createDOMElement("section", "", document.querySelector("#page"), [
